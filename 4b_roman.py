@@ -1,17 +1,39 @@
-str=input("Enter the roman number: ")
-d={'I':1, 'V':5, 'X':10, 'C':100, 'D':500, 'M':1000}
-i,R=0,0
-while i<len(str):
-    cv=d[str[i]]
-    if i+1<len(str[i]):
-        nv=d[str[i+1]]
-        if cv>nv:
-            R=R+cv
-            R+=1
+# str=input("Enter the roman number: ")
+# d={'I':1, 'V':5, 'X':10, 'C':100, 'D':500, 'M':1000}
+# i,R=0,0
+# while i<len(str):
+#     cv=d[str[i]]
+#     if i+1<len(str[i]):
+#         nv=d[str[i+1]]
+#         if cv>nv:
+#             R=R+cv
+#             R+=1
+#         else:
+#             R=R+nv-cv
+#             i=i+2
+#     else:
+#         R=R+cv
+#         i+=1
+# print("Integer number is: ",R)
+
+str = input("Enter the roman number: ")
+d = {'I': 1, 'V': 5, 'X': 10, 'C': 100, 'D': 500, 'M': 1000}
+i, R = 0, 0
+
+while i < len(str):
+    cv = d[str[i]]
+    
+    if i+1 < len(str):  # Fix: Corrected the condition to check the next character.
+        nv = d[str[i+1]]
+        
+        if cv >= nv:  # Fix: Changed the condition from cv > nv to cv >= nv.
+            R = R + cv
+            i = i + 1
         else:
-            R=R+nv-cv
-            i=i+2
+            R = R + nv - cv
+            i = i + 2
     else:
-        R=R+cv
-        i+=1
-print("Integer number is: ",R)
+        R = R + cv
+        i = i + 1
+
+print("Integer number is: ", R)
